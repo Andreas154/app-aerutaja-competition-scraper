@@ -7,7 +7,7 @@ Automated scraper that extracts rowing competition data from app.aerutaja.ee and
 ## 🔓 Public API Access (Read-Only)
 
 * **URL:** `https://udyekbfbyvbqvqjfqrbw.supabase.co`
-* **Anon Key:** `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkeWVrYmZieXZicXZxamZxcmJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgwOTIyMDUsImV4cCI6MjEwMzY2ODIwNX0.nePJCoYzOXdH1OSFmrAFzdMBw7LdSTqvLIEDzJMweZ4`
+* **Publishable key:** `sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw`
 * **Table:** `competitions`
 
 ### JavaScript / Node.js
