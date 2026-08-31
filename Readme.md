@@ -59,5 +59,5 @@ SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 npm start
 ```
 📄 License
-MIT
+This project is licensed under the MIT License - see the LICENSE file for details.
  
