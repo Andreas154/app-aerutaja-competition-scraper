@@ -39,24 +39,9 @@ curl 'https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=' \
   "created_at": "2026-08-30T15:30:45.042Z"
 }
 ```
-💻 Local Setup
-1.  Clone repository:
-```
-git clone https://github.com/Andreas154/app-aerutaja-competition-scraper.git
-cd app-aerutaja-competition-scraper
-```
-2.  Install dependencies:
-```
-npm install
-```
-3.  Create .env file (you can connect and make your own database if you need to):
-```
-SUPABASE_URL=https://udyekbfbyvbqvqjfqrbw.supabase.co
-SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-```
-4.  Run scraper:
-```
-npm start
-```
+💻 Local Setup:
+
+Check the release page
+
 📄 License:
 This project is licensed under the MIT License - see the LICENSE file for details.
