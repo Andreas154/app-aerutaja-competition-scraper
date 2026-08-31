@@ -1,6 +1,6 @@
 ![Netframe](http://netframe.ee/netframe.png)
 
-# 🚣 Aerutaja.ee Competition Scraper
+# 🚣 app.aerutaja.ee Competition Scraper
 
 Automated scraper that extracts rowing competition data from app.aerutaja.ee and syncs it to a Supabase database. 
 
