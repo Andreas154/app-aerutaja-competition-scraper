@@ -16,7 +16,7 @@ Automated scraper that extracts rowing competition data from app.aerutaja.ee and
 import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
-  '[https://udyekbfbyvbqvqjfqrbw.supabase.co](https://udyekbfbyvbqvqjfqrbw.supabase.co)',
+  'https://udyekbfbyvbqvqjfqrbw.supabase.co',
   'sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw'
 )
 
@@ -25,7 +25,7 @@ console.log(data)
 ```
 cURL
 ```
-curl '[https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=](https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=)*' \
+curl 'https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=' \
   -H "apikey: sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw4" \
   -H "Authorization: Bearer sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw"
 ```
@@ -42,7 +42,7 @@ curl '[https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=](ht
 💻 Local Setup
 1.  Clone repository:
 ```
-git clone [https://github.com/Andreas154/app-aerutaja-competition-scraper.git](https://github.com/Andreas154/app-aerutaja-competition-scraper.git)
+git clone https://github.com/Andreas154/app-aerutaja-competition-scraper.git
 cd app-aerutaja-competition-scraper
 ```
 2.  Install dependencies:
@@ -60,4 +60,3 @@ npm start
 ```
 📄 License:
 This project is licensed under the MIT License - see the LICENSE file for details.
- 
