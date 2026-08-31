@@ -17,7 +17,7 @@ import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
   '[https://udyekbfbyvbqvqjfqrbw.supabase.co](https://udyekbfbyvbqvqjfqrbw.supabase.co)',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkeWVrYmZieXZicXZxamZxcmJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgwOTIyMDUsImV4cCI6MjEwMzY2ODIwNX0.nePJCoYzOXdH1OSFmrAFzdMBw7LdSTqvLIEDzJMweZ4'
+  'sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw'
 )
 
 const { data, error } = await supabase.from('competitions').select('*')
