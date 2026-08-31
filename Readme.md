@@ -1,8 +1,23 @@
 ![Netframe](http://netframe.ee/netframe.png)
 
-# 🚣 app.aerutaja.ee Competition Scraper
+# 🚣 Aerutaja.ee Competition Scraper
 
-Automated scraper that extracts rowing competition data from app.aerutaja.ee and syncs it to a Supabase database. Runs automatically every 30 minutes via GitHub Actions.
+Automated scraper that extracts rowing competition data from app.aerutaja.ee and syncs it to a Supabase database. 
+
+> 💡 **Recommendation:** For real-time updates, it is highly recommended to run the local release script on your machine. While a GitHub Actions workflow is included to run every 30 minutes, GitHub Actions cron schedules are subject to platform delays and often run only every 2–4 hours.
+
+---
+
+## 🚀 Quick Start (Local Release Runner)
+
+The standalone local release comes pre-packaged with all `node_modules` included and is optimized for local execution with a built-in 3-minute scraping loop.
+
+1. Download the latest `release.zip` from the [Releases](https://github.com/Andreas154/app-aerutaja-competition-scraper/releases) section.
+2. Extract the archive.
+3. Modify the `.env` file in the extracted root directory:
+   ```env
+   SUPABASE_URL=your_database_url
+   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
 
 ## 🔓 Public API Access (Read-Only)
 
