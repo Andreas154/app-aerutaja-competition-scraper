@@ -26,8 +26,8 @@ console.log(data)
 cURL
 ```
 curl '[https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=](https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=)*' \
-  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkeWVrYmZieXZicXZxamZxcmJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgwOTIyMDUsImV4cCI6MjEwMzY2ODIwNX0.nePJCoYzOXdH1OSFmrAFzdMBw7LdSTqvLIEDzJMweZ4" \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVkeWVrYmZieXZicXZxamZxcmJ3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgwOTIyMDUsImV4cCI6MjEwMzY2ODIwNX0.nePJCoYzOXdH1OSFmrAFzdMBw7LdSTqvLIEDzJMweZ4"
+  -H "apikey: sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw4" \
+  -H "Authorization: Bearer sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw"
 ```
   🛠️ Data Structure
   ```
