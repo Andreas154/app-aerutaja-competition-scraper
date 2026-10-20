@@ -18,6 +18,7 @@ The standalone local release comes pre-packaged with all `node_modules` included
    ```env
    SUPABASE_URL=your_database_url
    SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+   ```
 
 ## 🔓 Public API Access (Read-Only)
 
@@ -38,14 +39,18 @@ const supabase = createClient(
 const { data, error } = await supabase.from('competitions').select('*')
 console.log(data)
 ```
-cURL
-```
+
+### cURL
+
+```bash
 curl 'https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=' \
   -H "apikey: sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw4" \
   -H "Authorization: Bearer sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw"
 ```
-  🛠️ Data Structure
-  ```
+
+### 🛠️ Data Structure
+
+```json
 {
   "title": "44. Emajõe maraton",
   "date": "12 September 2026",
@@ -54,9 +59,11 @@ curl 'https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=' \
   "created_at": "2026-08-30T15:30:45.042Z"
 }
 ```
-💻 Local Setup:
+
+## 💻 Local Setup
 
 Check the release page
 
-📄 License:
+## 📄 License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
