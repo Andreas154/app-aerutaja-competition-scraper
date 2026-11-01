@@ -29,27 +29,83 @@ Automated crawler and parser that extracts live canoeing and rowing competition 
 
 ---
 
-### Local Standalone Runner
+### Local Runner Setup
 
 > [!WARNING]
-> **Execution Latency Advisory:** GitHub Actions scheduled workflows (`cron`) are subject to shared queue delays, frequently executing at 2–4 hour intervals rather than the configured 30-minute schedule. For deterministic real-time synchronization, use the standalone local daemon with an enforced 180-second polling cycle.
+> **Execution Latency Advisory:** GitHub Actions scheduled workflows (`cron`) are subject to shared queue delays and frequently run only every 2 to 4 hours instead of every 30 minutes. If you require real-time synchronization, use this pre-packaged local runner.
 
-The distribution archive is pre-compiled with all dependencies included (zero `npm install` required):
+**Prerequisite:** Make sure **[Node.js](https://nodejs.org)** (version 18 or higher) is installed on your computer.
 
-1. Download **[`release.zip`](https://github.com/Andreas154/app-aerutaja-competition-scraper/releases/latest)** from the Releases section.
-2. Extract the archive and configure credentials in `.env`:
-   ```bash
-   unzip release.zip -d aerutaja-scraper
-   cd aerutaja-scraper
-   ```
+All dependencies (`node_modules`) are already bundled inside the release archive, so no installation command is needed.
+
+#### Windows Setup
+
+1. **Download:** Get [`release.zip`](https://github.com/Andreas154/app-aerutaja-competition-scraper/releases/latest) from the Releases section.
+2. **Extract:** Right-click `release.zip` and select **Extract All...** to unpack the files into a folder.
+3. **Configure:** Open the extracted folder, find `.env`, right-click it, and open with **Notepad**. Enter your Supabase credentials:
    ```env
-   SUPABASE_URL=https://<project-ref>.supabase.co
-   SUPABASE_SERVICE_ROLE_KEY=<service-role-secret>
+   SUPABASE_URL=https://your-project.supabase.co
+   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
    ```
-3. Initialize the continuous daemon:
+4. **Run:** In the folder address bar at the top of File Explorer, type `cmd` and press Enter. In the command prompt that opens, type:
+   ```cmd
+   npm start
+   ```
+
+#### macOS Setup
+
+1. **Download:** Get [`release.zip`](https://github.com/Andreas154/app-aerutaja-competition-scraper/releases/latest) from the Releases section.
+2. **Extract:** Double-click `release.zip` in Finder to unpack it.
+3. **Configure:** Open the extracted folder. If `.env` is hidden, press `Cmd + Shift + .` (period) to reveal hidden files. Open `.env` with TextEdit (or your preferred editor) and enter your credentials:
+   ```env
+   SUPABASE_URL=https://your-project.supabase.co
+   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+   ```
+4. **Run:** Open **Terminal**, type `cd ` (with a space), drag the folder into Terminal, press Enter, and run:
    ```bash
    npm start
    ```
+
+#### Linux Setup
+
+1. **Download and Extract:**
+   ```bash
+   wget https://github.com/Andreas154/app-aerutaja-competition-scraper/releases/latest/download/release.zip
+   unzip release.zip -d aerutaja-scraper
+   cd aerutaja-scraper
+   ```
+2. **Configure:** Open `.env` in your editor of choice:
+   ```bash
+   nano .env
+   ```
+   Add your credentials and save:
+   ```env
+   SUPABASE_URL=https://your-project.supabase.co
+   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+   ```
+3. **Run:** Start the scraper daemon:
+   ```bash
+   npm start
+   ```
+
+---
+
+### Customizing Sync Frequency (Timing)
+
+By default, the local runner scrapes and syncs every 3 minutes (180,000 milliseconds). To adjust how often it checks for updates:
+
+1. Open `index.js` in a text editor (Notepad, VS Code, TextEdit, or nano).
+2. Scroll to the bottom and locate the `startLoop` function:
+   ```javascript
+   // Change the timing value inside setTimeout (in milliseconds):
+   await new Promise(resolve => setTimeout(resolve, 180000));
+   ```
+3. Change the number `180000` to your preferred interval:
+   - `60000` — Sync every 1 minute
+   - `180000` — Sync every 3 minutes (default)
+   - `300000` — Sync every 5 minutes
+   - `600000` — Sync every 10 minutes
+4. Save the file and restart the runner (`Ctrl + C` to stop, then `npm start`).
 
 ---
 
