@@ -1,32 +1,41 @@
-![Netframe](http://netframe.ee/netframe.png)
+<div align="center">
+  <a href="https://netframe.ee">
+    <img src="https://netframe.ee/netframe.png" alt="Netframe Banner" width="100%" />
+  </a>
 
-# 🚣 app.aerutaja.ee Competition Scraper
+  <p align="center">
+    <strong>Automated competition data scraper for app.aerutaja.ee synced to Supabase.</strong>
+  </p>
 
-Automated scraper that extracts rowing competition data from app.aerutaja.ee and syncs it to a Supabase database. 
-
-> 💡 **Recommendation:** For real-time updates, it is highly recommended to run the local release script on your machine. While a GitHub Actions workflow is included to run every 30 minutes, GitHub Actions cron schedules are subject to platform delays and often run only every 2–4 hours.
+  <p align="center">
+    <a href="https://app.aerutaja.ee"><img src="https://img.shields.io/badge/Source-app.aerutaja.ee-0284c7?style=flat-square" alt="Source" /></a>
+    <a href="https://supabase.com"><img src="https://img.shields.io/badge/Database-Supabase-3ecf8e?style=flat-square&logo=supabase&logoColor=white" alt="Supabase" /></a>
+    <img src="https://img.shields.io/badge/Node.js-ESM-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Puppeteer-v25-00d8a2?style=flat-square&logo=puppeteer&logoColor=white" alt="Puppeteer" />
+    <img src="https://img.shields.io/badge/Cheerio-v1-e88c1f?style=flat-square" alt="Cheerio" />
+    <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-gray?style=flat-square" alt="License" /></a>
+  </p>
+</div>
 
 ---
 
-## 🚀 Quick Start (Local Release Runner)
+### What is this?
 
-The standalone local release comes pre-packaged with all `node_modules` included and is optimized for local execution with a built-in 3-minute scraping loop.
+Automated crawler and parser that extracts live canoeing/rowing competition schedules, dates, and locations from **[app.aerutaja.ee](https://app.aerutaja.ee)** and syncs them continuously into a public Supabase database.
 
-1. Download the latest `release.zip` from the [Releases](https://github.com/Andreas154/app-aerutaja-competition-scraper/releases) section.
-2. Extract the archive.
-3. Modify the `.env` file in the extracted root directory:
-   ```env
-   SUPABASE_URL=your_database_url
-   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
-   ```
+- **Real-time syncing** — Extracts title, dates, venues, and race distances with change detection.
+- **Dual execution** — Supports GitHub Actions automation as well as high-frequency local runner loops.
+- **Open data access** — Clean public Supabase endpoints queryable via REST or official SDKs.
 
-## 🔓 Public API Access (Read-Only)
+---
 
-* **URL:** `https://udyekbfbyvbqvqjfqrbw.supabase.co`
-* **Publishable key:** `sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw`
-* **Table:** `competitions`
+### Public API Access (Read-Only)
 
-### JavaScript / Node.js
+Query competition records directly without backend credentials:
+
+- **Endpoint:** `https://udyekbfbyvbqvqjfqrbw.supabase.co`
+- **Table:** `competitions`
+- **Publishable Key:** `sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw`
 
 ```javascript
 import { createClient } from '@supabase/supabase-js'
@@ -36,19 +45,18 @@ const supabase = createClient(
   'sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw'
 )
 
-const { data, error } = await supabase.from('competitions').select('*')
+const { data } = await supabase.from('competitions').select('*')
 console.log(data)
 ```
 
-### cURL
-
 ```bash
-curl 'https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=' \
-  -H "apikey: sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw4" \
+curl 'https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=*' \
+  -H "apikey: sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw" \
   -H "Authorization: Bearer sb_publishable_AIIGLxDzqVOjOXQCWQc69w_53-dTHIw"
 ```
 
-### 🛠️ Data Structure
+<details>
+<summary><strong>Data schema preview</strong></summary>
 
 ```json
 {
@@ -60,10 +68,10 @@ curl 'https://udyekbfbyvbqvqjfqrbw.supabase.co/rest/v1/competitions?select=' \
 }
 ```
 
-## 💻 Local Setup
+</details>
 
-Check the release page
+---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+<div align="center">
+  <sub>Powered by <a href="https://netframe.ee">Netframe</a> · Licensed under MIT</sub>
+</div>
