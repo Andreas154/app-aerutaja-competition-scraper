@@ -31,17 +31,22 @@ Automated crawler and parser that extracts live canoeing and rowing competition 
 
 ### Local Standalone Runner
 
-> **Notice:** GitHub Actions cron schedules are subject to queue delays and often run only every 2 to 4 hours instead of every 30 minutes. If you require true real-time syncing, use the local standalone runner which loops every 3 minutes.
+> [!WARNING]
+> **Execution Latency Advisory:** GitHub Actions scheduled workflows (`cron`) are subject to shared queue delays, frequently executing at 2–4 hour intervals rather than the configured 30-minute schedule. For deterministic real-time synchronization, use the standalone local daemon with an enforced 180-second polling cycle.
 
-The standalone release comes pre-packaged with all dependencies included (zero `npm install` required):
+The distribution archive is pre-compiled with all dependencies included (zero `npm install` required):
 
 1. Download **[`release.zip`](https://github.com/Andreas154/app-aerutaja-competition-scraper/releases/latest)** from the Releases section.
-2. Extract the archive and add your Supabase credentials to `.env`:
-   ```env
-   SUPABASE_URL=your_supabase_url
-   SUPABASE_SERVICE_ROLE_KEY=your_service_role_key
+2. Extract the archive and configure credentials in `.env`:
+   ```bash
+   unzip release.zip -d aerutaja-scraper
+   cd aerutaja-scraper
    ```
-3. Start the continuous runner loop:
+   ```env
+   SUPABASE_URL=https://<project-ref>.supabase.co
+   SUPABASE_SERVICE_ROLE_KEY=<service-role-secret>
+   ```
+3. Initialize the continuous daemon:
    ```bash
    npm start
    ```
